@@ -6,8 +6,7 @@ from torch.nn import functional as F
 import numpy as np
 
 from distributed import reduce_sum
-from op import upfirdn2d
-
+from op.upfirdn2d import upfirdn2d
 
 class AdaptiveAugment:
     def __init__(self, ada_aug_target, ada_aug_len, update_every, device):
