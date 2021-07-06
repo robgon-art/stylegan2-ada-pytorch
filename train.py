@@ -455,7 +455,7 @@ if __name__ == "__main__":
         from stylegan2 import Generator, Discriminator
 
     elif args.arch == 'stylegan2_alias_free':
-        from swagan import Generator, Discriminator
+        from swagan stylegan2_alias_free Generator, Discriminator
 
     elif args.arch == 'swagan':
         from swagan import Generator, Discriminator
