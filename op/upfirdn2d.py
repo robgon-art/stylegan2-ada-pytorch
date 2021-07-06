@@ -1,20 +1,26 @@
 import os
-
 import torch
 from torch.nn import functional as F
 
-
 module_path = os.path.dirname(__file__)
 
-
-
 def upfirdn2d(input, kernel, up=1, down=1, pad=(0, 0)):
+    if type(up) is int:
+      up_x = up
+      up_y = up
+    else:
+      up_x, up_y = up
+
+    if type(down) is int:
+      down_x = down
+      down_y = down
+    else:
+      down_x, down_y = down
+
     out = upfirdn2d_native(
-        input, kernel, up, up, down, down, pad[0], pad[1], pad[0], pad[1]
+        input, kernel, up_x, up_y, down_x, down_y, pad[0], pad[1], pad[0], pad[1]
     )
-
     return out
-
 
 def upfirdn2d_native(
     input, kernel, up_x, up_y, down_x, down_y, pad_x0, pad_x1, pad_y0, pad_y1
