@@ -452,7 +452,10 @@ if __name__ == "__main__":
     args.start_iter = 0
 
     if args.arch == 'stylegan2':
-        from model import Generator, Discriminator
+        from stylegan2 import Generator, Discriminator
+
+    elif args.arch == 'stylegan2_alias_free':
+        from swagan import Generator, Discriminator
 
     elif args.arch == 'swagan':
         from swagan import Generator, Discriminator
