@@ -6,8 +6,8 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from stylegan2.model import PixelNorm, EqualLinear
-from stylegan2.op import conv2d_gradfix, upfirdn2d, fused_leaky_relu
+from stylegan2 import PixelNorm, EqualLinear
+from op.fused_act import FusedLeakyReLU, fused_leaky_relu
 
 
 def kaiser_attenuation(n_taps, f_h, sr):
