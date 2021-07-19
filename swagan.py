@@ -68,7 +68,7 @@ class InverseHaarTransform(nn.Module):
 
 
 class ToRGB(nn.Module):
-    def __init__(self, in_channel, style_dim, upsample=True, blur_kernel=[1, 3, 3, 1]):
+    def __init__(self, in_channel, style_dim, upsample=True, blur_kernel=[1, 8, 28, 56, 70, 56, 28, 8, 1]):
         super().__init__()
 
         if upsample:
@@ -100,7 +100,7 @@ class Generator(nn.Module):
         style_dim,
         n_mlp,
         channel_multiplier=2,
-        blur_kernel=[1, 3, 3, 1],
+        blur_kernel=[1, 8, 28, 56, 70, 56, 28, 8, 1],
         lr_mlp=0.01,
     ):
         super().__init__()
@@ -278,7 +278,7 @@ class Generator(nn.Module):
 
 
 class ConvBlock(nn.Module):
-    def __init__(self, in_channel, out_channel, blur_kernel=[1, 3, 3, 1]):
+    def __init__(self, in_channel, out_channel, blur_kernel=[1, 8, 28, 56, 70, 56, 28, 8, 1]):
         super().__init__()
 
         self.conv1 = ConvLayer(in_channel, in_channel, 3)
@@ -292,7 +292,7 @@ class ConvBlock(nn.Module):
 
 
 class FromRGB(nn.Module):
-    def __init__(self, out_channel, downsample=True, blur_kernel=[1, 3, 3, 1]):
+    def __init__(self, out_channel, downsample=True, blur_kernel=[1, 8, 28, 56, 70, 56, 28, 8, 1]):
         super().__init__()
 
         self.downsample = downsample
@@ -319,7 +319,7 @@ class FromRGB(nn.Module):
 
 
 class Discriminator(nn.Module):
-    def __init__(self, size, channel_multiplier=2, blur_kernel=[1, 3, 3, 1]):
+    def __init__(self, size, channel_multiplier=2, blur_kernel=[1, 8, 28, 56, 70, 56, 28, 8, 1]):
         super().__init__()
 
         channels = {
